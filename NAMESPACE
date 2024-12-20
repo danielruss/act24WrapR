@@ -2,6 +2,8 @@
 
 export(act24_auth)
 export(act24_deauth)
+export(getDetailReport)
 export(getDetailReportQC)
 export(getParticantList)
 export(getStudies)
+export(getSummaryReportQC)

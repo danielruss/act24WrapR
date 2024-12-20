@@ -4,17 +4,27 @@
 \alias{Act24_API_Wrapper}
 \alias{getStudies}
 \alias{getParticantList}
+\alias{getSummaryReportQC}
 \alias{getDetailReportQC}
+\alias{getDetailReport}
 \title{Call Act24 API}
 \usage{
 getStudies()
 
 getParticantList(studyId)
 
-getDetailReportQC(studyId)
+getSummaryReportQC(studyId, startDate = NULL, endDate = NULL)
+
+getDetailReportQC(studyId, startDate = NULL, endDate = NULL)
+
+getDetailReport(studyId, startDate = NULL, endDate = NULL)
 }
 \arguments{
 \item{studyId}{The studyId assigned by act24. Found in the getStudies results}
+
+\item{startDate}{The earliest recall date: format YYYY-MM-DD}
+
+\item{endDate}{The latest recall date: format YYYY-MM-DD}
 }
 \value{
 a tibble that depends on the api called

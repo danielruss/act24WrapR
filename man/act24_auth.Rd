@@ -5,16 +5,27 @@
 \alias{act24_deauth}
 \title{Provide API Linkage Id/password}
 \usage{
-act24_auth(api_id)
+act24_auth(api_id, .ignore_keyring = FALSE)
 
-act24_deauth()
+act24_deauth(clear_keyring = FALSE)
 }
 \arguments{
 \item{api_id}{The ACT24 API Linkage id}
+
+\item{.ignore_keyring}{If set to true, will not use the keyring to store
+the api password across R sessions}
+
+\item{clear_keyring}{If set to true, will clear the id/password stored in
+the keyring}
 }
 \description{
-act24_auth sets the api linkage id (\strong{not the ACT24 research id}) and password.
-The password is cached until you close your R session
+act24_auth sets the api linkage id (\strong{not the ACT24 research id}) and
+password. The password is stored in a machine-specific manner based on the
+package keyring.  You can add .ignore_keyring to avoid storing the linked
+api password in the keychain. Even if you dont store the api password in the
+keychain, the id and password are cached in memory for the duration of the
+R session, unless you call act24_deauth.  The keyring can be cleared by
+calling act24_deauth with clear_keychain = TRUE
 }
 \details{
 act24_deauth removes the api linkage information.
