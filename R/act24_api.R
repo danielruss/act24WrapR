@@ -37,14 +37,8 @@ getStudies <- function(){
 #' @rdname Act24_API_Wrapper
 #' @export
 getParticantList <-function(studyId){
-  if (is.null(.auth)) {
-    stop("not authenticated")
-  }
-  if (!is.numeric(studyId)) stop("Invalid Study Id",studyId)
-  if (length(studyId)>1) stop("participantList can only have 1 study")
-  api_url <- glue::glue("{base_url}/participantList/{studyId}/")
-
-  make_act24_api_call(api_url)
+  build_api_call("participantList",studyId) |>
+    make_act24_api_call()
 }
 
 #' @rdname Act24_API_Wrapper
